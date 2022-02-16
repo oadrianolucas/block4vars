@@ -1,0 +1,38 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+  <div class="div-center">
+    <h1><i class="ri-layout-line align-middle"></i> Telas</h1>
+    <div class="rounded bg-white p-2">   
+    <div class="row mb-2">
+        <div class="col-md-9">
+        </div>
+        <div class="col-md-3">
+          <a class="btn btn-primary d-block" href="/configuration"><i class="ri-check-line align-middle"></i> Finalizar</a>
+        </div>
+    </div>
+      <form method="POST" action="/create/screen">
+        <input type="hidden" name="phase" value="{{phase.id}}" />
+        <div class="input-group mb-3">
+          <input class="form-control" type="text" placeholder="Criar tela " name="name" required />
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Adicionar</button>
+        </div>
+      </form>
+      <div class="row p-2">
+        {{#each screens}}
+        <div class="col-md-8">
+          <label class="fw-bold">Nome:</label>
+          <h5 class="fw-light mt-2">{{name}}</h5>
+        </div>
+        <div class="col-md-4">
+          <label class="fw-bold">Ações:</label>
+          <a class="btn btn-outline-secondary d-block mt-1" href="/screen/{{id}}"><i class="ri-layout-4-fill align-middle"></i> Configurar</a>
+        </div>
+        <hr class="mt-2">
+        {{else}}
+          <h6 class="text-danger">Nenhuma tela criada</h6>
+        {{/each}}
+      </div>
+  </div>
+</div>
+</div>

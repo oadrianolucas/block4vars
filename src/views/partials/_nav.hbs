@@ -1,0 +1,71 @@
+<span class="screen-darken"></span>
+<header class="section-header bg-white shadow-sm d-lg-none">
+  <a class="navbar-brand" href="#"><img
+      src="/assets/img/icon.png"
+      class="icon m-1"
+      alt="Block4Vars"
+    />
+  </a>
+  <button
+    data-trigger="navbar_main"
+    class="btn btn-lg p-3 float-end"
+    type="button"
+  >
+    <i class="ri-menu-line"></i>
+  </button>
+</header>
+<nav
+  id="navbar_main"
+  class="mobile-offcanvas navbar navbar-expand-lg bg-white shadow-sm"
+>
+  <div class="container">
+    <div class="offcanvas-header">
+      <button class="btn-close float-end"></button>
+    </div>
+    <a class="navbar-brand" href="#"><img
+        src="/assets/img/logo.png"
+        class="w-50"
+        alt="Block4Vars"
+      />
+    </a>
+    <ul class="navbar-nav ms-auto p-2">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="/regulation"><i
+            class="ri-shield-check-line align-middle"
+          ></i>
+          Regulação</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="/configuration"><i
+            class="ri-settings-4-line align-middle"
+          ></i>
+          Configurar</a>
+      </li>
+      <li class="nav-item text-dark dropdown">
+        <a
+          class="nav-link text-dark dropdown-toggle"
+          href="#"
+          data-bs-toggle="dropdown"
+        >
+          <i class="ri-user-line"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item" href="#"><i
+                class="ri-file-user-line align-middle"
+              ></i>
+              Minha Conta</a>
+          </li>
+          <li>
+            <form method="POST" action="/logout" class="mt-3">
+              <button class="dropdown-item"><i
+                  class="ri-door-open-line align-middle"
+                ></i>
+                Sair</button>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

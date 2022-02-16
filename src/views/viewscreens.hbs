@@ -1,0 +1,26 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+  <div class="div-center">
+    <h1><i class="ri-layout-line align-middle"></i> Telas</h1>
+      </nav>
+      <div class="rounded bg-white p-2">   
+        <div class="row">
+          {{#each screens}}
+          <div class="col-md-8">
+            <label class="fw-bold">Nome:</label>
+            <h5 class="fw-light mt-2">{{name}}</h5>
+          </div>
+          <div class="col-md-4">
+            <label class="fw-bold">Ações:</label>
+            <a class="btn btn-outline-secondary d-block mt-1" href="/view/screen/{{id}}">
+                <i class="ri-eye-line align-middle"></i> Visualizar
+            </a>
+          </div>
+          {{else}}
+            <h6 class="text-danger">Nenhuma tela criada</h6>
+          {{/each}}
+        </div>
+      </div>
+  </div>
+</div>

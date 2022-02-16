@@ -1,0 +1,70 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+    <div class="div-center">        
+      <h1 class="mt-4"><i class="ri-settings-4-line align-middle"></i> Configurar</h1>
+      <div class="rounded bg-white p-2">
+        <form method="POST" action="/create/settings">
+            <label>Escolha o seguro: </label>
+            <select class="form-select" name="seguro" required> 
+              <option value=""></option>
+              <option value="Máquinas e Equipamentos">Máquinas e Equipamentos</option>
+              <option value="Benfeitoria">Benfeitoria</option>
+              <option value="Lavoura">Lavoura</option>
+            </select>
+            <label>Escolha o tipo de evento: </label>
+            <select class="form-select" name="evento" required>
+              <option value=""></option>
+              <option value="Incêndio">Incêndio</option>
+              <option value="Geada">Geada</option>
+              <option value="Granizo">Granizo</option>
+            </select>
+            <button class="btn btn-success mt-4" type="submit"><i class="ri-stack-line align-middle"></i> Iniciar</button>
+        </form>
+      </div>
+      <hr>
+      <div class="rounded bg-white p-2">
+          <table class="table table-sm table-borderless table-hover">
+          <thead class="text-white bg-secondary">
+          <tr>
+              <th>#</th>
+              <th>Seguro</th>
+              <th>Evento</th>
+              <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              {{#each setting}}
+              <td class="align-middle">{{id}}</td>
+              <td class="align-middle">{{seguro}}</td>
+              <td class="align-middle">{{evento}}</td>
+              <td class="align-middle">
+              <button
+                class="dropdown-toggle btn"
+                href="#"
+                data-bs-toggle="dropdown"
+              >
+                <i class="ri-settings-3-line"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="/view/{{id}}"> <i class="ri-eye-line align-middle"></i> Visualizar</a>
+                </li>
+                <li>
+                    <form method="POST" action="/delete/configuration">
+                      <input type="hidden" value="{{id}}" name="id" />
+                      <button class="dropdown-item"  onclick="return confirm('Tem certeza que deseja deletar essa configuração?');"><i class="ri-delete-bin-line"></i> Delete</button>
+                    </form>
+                </li>
+              </ul>
+            </td>
+          </tr>
+          </tbody>
+          {{else}}
+              <h6 class="text-danger">Nenhuma configuração encontrada</h6>
+          {{/each}}
+          </table>
+      </div>
+    </div>
+  </div>

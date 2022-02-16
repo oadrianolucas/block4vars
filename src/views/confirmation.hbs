@@ -1,0 +1,17 @@
+{{>_loading}}
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+  <div class="div-center">
+    <div class="rounded bg-white p-4 text-center">
+      <h1>Estamos prontos para configurar.</h1>
+      {{#each setting}}
+        <form method="POST" action="/create2/phase">
+        <input type="hidden" value="{{id}}" name="setting"/>
+        <input type="hidden" value="Etapa" name="name"/>
+        <button class="btn btn-outline-success" type="submit"><i class="ri-arrow-right-line align-middle"></i> Continuar</button>
+        </form>
+      {{/each}}
+    </div>
+  </div>
+</div>

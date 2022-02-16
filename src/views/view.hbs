@@ -1,0 +1,16 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+  <div class="div-center">
+    <h1>Configuração: {{setting.id}}</h1>
+    <div class="rounded bg-white p-2">
+        <h6>Seguro: {{setting.seguro}}</h6>
+        <h6>Evento: {{setting.evento}}</h6>
+        <h6>Data de criação: {{#formatDate setting.createdAt}}{{/formatDate}}</h6>
+        <hr>
+        <a href="/view/screens/{{setting.id}}" class="btn btn-outline-dark">
+            <i class="ri-eye-2-line align-middle"></i> Visualizar telas
+        </a>
+    </div>
+  </div>
+</div>

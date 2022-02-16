@@ -1,0 +1,21 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+  <div class="div-center">
+    <h1><i class="ri-layout-row-line align-middle"></i>Tela: {{screen.name}}</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/view/screens/{{screen.phaseId}}"> Voltar</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Id: {{screen.id}}
+          </li>
+        </ol>
+    </nav>
+    <div class="rounded bg-white p-2">
+      <input type="hidden" id="jsonForm" value="{{screen.json}}" />
+      <form id="fb-render"></form>
+    </div>
+  </div>
+</div>
