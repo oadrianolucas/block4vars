@@ -12,7 +12,7 @@
             <a href="/regulation"> Regulação</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Sinistro: 123
+            Sinistro: {{data.num_sinistro}}
           </li>
         </ol>
       </nav>
@@ -39,16 +39,16 @@
             >
               <div class="accordion-body">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Sinistro: 123</li>
-                  <li class="list-group-item">Data aviso: 05/02/22</li>
-                  <li class="list-group-item">Valor Pleiteado: R$100.000,00</li>
+                  <li class="list-group-item">Sinistro: {{data.num_sinistro}}</li>
+                  <li class="list-group-item">Data aviso: {{data.data_aviso}}</li>
+                  <li class="list-group-item">Valor Pleiteado: R${{data.valor_pleiteado}}</li>
                   <li class="list-group-item">Is: R$100,00</li>
-                  <li class="list-group-item">Apólice: 9987</li>
+                  <li class="list-group-item">Apólice: {{data.num_apolice}}</li>
                   <li class="list-group-item">
-                    Vigência Ínicio: 01/Jan/21
+                    Vigência Ínicio: {{data.ini_vigencia}}
                   </li>
                   <li class="list-group-item">
-                    Vigência Término: 01/Jan/22
+                    Vigência Término: {{data.fim_vigencia}}
                   </li>
                 </ul>
               </div>
@@ -75,21 +75,21 @@
             >
               <div class="accordion-body">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Segurado: Chistian Souza</li>
-                  <li class="list-group-item">CPF: 111.111.111-11</li>        
+                  <li class="list-group-item">Segurado: {{data.segurado}}</li>
+                  <li class="list-group-item">CPF: {{data.cpf}}</li>        
                   <li class="list-group-item">Fase: Aviso</li>
                   <li class="list-group-item">
-                    Classificação: --
+                    Classificação: {{data.classificacao}}
                   </li>
-                  <li class="list-group-item">Status: Avisado</li>
+                  <li class="list-group-item">Status: {{data.status}}</li>
                   <li class="list-group-item">
                     Analista Técnico Responsável: Beltrano
                   </li>
                   <li class="list-group-item">
                     Vistoriador Acionado: 01/Jan/21
                   </li>
-                  <li class="list-group-item">Tipo Do Evento: Geada</li>
-                  <li class="list-group-item">Prazo Regulação: 4 dias</li>
+                  <li class="list-group-item">Tipo Do Evento: {{data.evento}}</li>
+                  <li class="list-group-item">Prazo Regulação: {{data.prazo_regulacao}}</li>
                 </ul>
               </div>
             </div>

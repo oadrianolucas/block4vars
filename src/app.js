@@ -16,7 +16,7 @@ app.use(
   })
 );
 require("dotenv").config();
-app.set("port", process.env.PORT || 4000);
+app.set("port", process.env.PORT);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
