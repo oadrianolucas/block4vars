@@ -5,9 +5,8 @@ const bodyParser = require("body-parser");
 const flash = require("connect-flash");
 const moment = require("moment");
 const session = require("express-session");
-
-const settingsController = require("./controllers/settingsController");
 const app = express();
+const routes = require("./routes");
 
 //Sessions
 app.use(
@@ -17,7 +16,7 @@ app.use(
   })
 );
 require("dotenv").config();
-app.set("port", process.env.PORT || 80);
+app.set("port", process.env.PORT || 4000);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
@@ -38,6 +37,6 @@ app.engine(
 );
 
 app.set("view engine", ".hbs");
-app.use("/", settingsController);
+app.use("/", routes);
 
 module.exports = app;
