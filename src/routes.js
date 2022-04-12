@@ -1,10 +1,7 @@
 const router = require("express").Router();
 const filter = require("./middlewares/filter");
 const adminController = require("./controllers/AdminsController");
-const phaseController = require("./controllers/PhasesController");
-const screenController = require("./controllers/ScreensController");
-const settingsController = require("./controllers/SettingsController");
-const api = require("./apis/block4vars");
+const Block4vars = require("./apis/block4vars");
 
 router.get("/create/admin", filter, adminController.GetCreateAdmin);
 
@@ -12,63 +9,28 @@ router.post("/logout", filter, adminController.PostLogout);
 
 router.post("/authenticate", adminController.PostAuthenticate);
 
-router.get("/phases/:id", filter, phaseController.GetPhasesId);
+router.post("/config/:ramo/:evento/:tela", Block4vars.PostConfig);
 
-router.get("/phase/:id", filter, phaseController.GetPhaseId);
+router.get("/config/:ramo/:evento", Block4vars.GetConfig);
 
-router.post("/create/phase", filter, phaseController.PostCreatePhase);
+router.get("/config/:ramo/:evento/:tela", Block4vars.GetConfigScreen);
 
-router.post("/create2/phase", filter, phaseController.PostCreate2Phase);
+router.get("/regulation/:id", Block4vars.GetSinister);
 
-router.post("/create/screen", filter, screenController.PostCreateScreen);
+router.get("/regulations", Block4vars.GetSinisters);
 
-router.get("/screen/:id", filter, screenController.GetScreenId);
+router.get("/configurations", Block4vars.GetAllConfigs);
 
-router.post("/update/screen", filter, screenController.PostUpdateScreen);
+router.get("/new/config", Block4vars.GetNewConfig);
 
-router.get("/view/screens/:id", filter, screenController.GetFindAllScreensId);
+router.post("/new/config/screen", Block4vars.PostNewScreen);
 
-router.get("/view/screen/:id", filter, screenController.GetViewScreenId);
+router.post("/add/screen", Block4vars.PostConfig);
 
-router.post("/create/settings", filter, settingsController.PostCreateSettings);
-
-router.get(
-  "/create/confirmation",
-  filter,
-  settingsController.GetConfirmationId
-);
-
-router.get("/configuration", filter, settingsController.GetConfiguration);
-
-router.get("/view/:id", filter, settingsController.GetViewSettingId);
-
-router.post(
-  "/delete/configuration",
-  filter,
-  settingsController.PostDeleteConfiguration
-);
+router.get("/teste", Block4vars.GetTeste);
 
 router.get("/", (req, res) => {
   res.render("login");
-});
-
-router.get("/regulation", filter, async (req, res) => {
-  try {
-    const { data } = await api.get("/sinistro");
-    return res.render("regulation", { data });
-  } catch (error) {
-    res.send(error);
-  }
-});
-
-router.get("/regulation/view/:id", async (req, res) => {
-  var id = req.params.id;
-  try {
-    const { data } = await api.get("/sinistro?num_sinistro=" + id);
-    return res.render("regulationview", { data });
-  } catch (error) {
-    res.send(error);
-  }
 });
 
 module.exports = router;

@@ -38,7 +38,7 @@ const AdminsController = {
             name: admin.name,
             email: admin.email,
           };
-          res.redirect("/configuration");
+          res.redirect("/regulations");
         } else {
           res.redirect("/");
         }

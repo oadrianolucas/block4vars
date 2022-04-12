@@ -1,0 +1,22 @@
+<div class="div-center">
+  <div class="mt-4 text-center py-4">
+    <h1>Deseja finalizar a configuração?</h1>
+    <p>Ramo:
+      <span class="text-primary">{{ramo}}</span>
+      | Evento:
+      <span class="text-primary">{{evento}}</span>
+    </p>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <form method="POST" action="/new/config/screen">
+          <input type="hidden" name="ramo" value="{{ramo}}" />
+          <input type="hidden" name="evento" value="{{evento}}" />
+          <button class="btn btn-dark px-3" type="submit">Criar nova tela</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <a class="btn btn-primary px-5" href="/configurations">Finalizar</a>
+      </div>
+    </div>
+  </div>
+</div>

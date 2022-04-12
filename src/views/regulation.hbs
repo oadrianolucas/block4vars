@@ -8,44 +8,33 @@
     <div class="table-responsive">
         <table class="table table-sm">  <thead>
         <tr>
-            <th scope="col">Classificação</th>
-            <th scope="col">CPF</th>
-            <th scope="col">Data Aviso</th>
-            <th scope="col">Data Sinistro</th>
-            <th scope="col">Etapa</th>
-            <th scope="col">Evento</th>
-            <th scope="col">Vigência Término</th>
-            <th scope="col">Vigência Ínicio</th>
-            <th scope="col">Número Apólice</th>
-            <th scope="col">Número Sinistro</th>
-            <th scope="col">Parecer IA</th>
-            <th scope="col">Prazo Regulação</th>
             <th scope="col">Ramo</th>
-            <th scope="col">Segurado</th>
-            <th scope="col">Status</th>
-            <th scope="col">Valor Pleiteado</th>
+            <th scope="col">Evento</th>
+            <th scope="col">Número Sinistro</th>
+            <th scope="col">Dados</th>
             <th scope="col">Ações</th>
         </tr>
     </thead>
     <tbody>
         {{#each data}}
         <tr>
-            <td>{{classificacao}}</td>
-            <td>{{cpf}}</td>
-            <td>{{data_aviso}}</td>
-            <td>{{data_sinistro}}</td>
-            <td>{{etapa}}</td>
-            <td>{{evento}}</td>
-            <td>{{fim_vigencia}}</td>
-            <td>{{ini_vigencia}}</td>
-            <td>{{num_apolice}}</td>
-            <td>{{num_sinistro}}</td>
-            <td>{{parecer_ia}}</td>
-            <td>{{prazo_regulacao}}</td>
             <td>{{ramo}}</td>
-            <td>{{segurado}}</td>
-            <td>{{status}}</td>
-            <td>{{valor_pleiteado}}</td>
+            <td>{{evento}}</td>
+            <td>{{num_sinistro}}</td>
+            <td> 
+                {{#each dados}}
+                  <div class="form-group">
+                    <label for="{{label}}">{{label}}: </label>
+                    {{value}}
+                    {{#each values}} 
+                      {{value}}
+                    {{/each}}
+                  </div>
+                  <hr>
+                {{else}}
+                  <h6 class="text-danger">Nenhum dado configurado.</h6>
+                {{/each}}
+            </td>
             <td>
                 <button
                 class="dropdown-toggle btn"
@@ -56,7 +45,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <a class="dropdown-item" href="/regulation/view/{{num_sinistro}}"><i
+                    <a class="dropdown-item" href="/regulation/{{num_sinistro}}"><i
                         class="ri-eye-line align-middle"
                     ></i>
                     Visualizar</a>
@@ -66,7 +55,7 @@
         </tr>
         </tbody>
         {{else}}
-        <h6 class="text-danger">Nenhuma tela criada</h6>
+          <h6 class="text-danger">Nenhuma tela criada</h6>
         {{/each}}
         </table>
     </div>

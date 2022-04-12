@@ -1,0 +1,29 @@
+<!-- {{>_loading}} -->
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4">
+    <div class="div-center">        
+        <div class="row">
+            <div class="col-md-8">
+                <h1><i class="ri-settings-4-line align-middle"></i> Nova Configuração</h1>
+            </div>
+        </div>
+        <form method="POST" action="/new/config/screen">
+            <div class="mb-3">
+                <label>Ramo: </label>
+                <select class="form-select" name="ramo">
+                    <option value="Máquinas e equipamentos">Máquinas e equipamentos</option>
+                    <option value="Benfeitoria">Benfeitoria</option>
+                    <option value="Lavoura">Lavoura</option>
+                </select>
+                <label>Evento: </label>
+                <select class="form-select" name="evento">
+                    <option value="Incêndio">Incêndio</option>
+                    <option value="Geada">Geada</option>
+                    <option value="Granizo">Granizo</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Começar</button>
+        </form>
+    </div>
+</div>

@@ -40,32 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-$(document).ready(function () {
-  $(".step").hide();
-  $(".step").first().show();
-  var passoexibido = function () {
-    var index = parseInt($(".step:visible").index());
-    if (index == 0) {
-      $("#prev").prop("disabled", true);
-    } else if (index == parseInt($(".step").length) - 1) {
-      $("#next").prop("disabled", true);
-    } else {
-      $("#next").prop("disabled", false);
-      $("#prev").prop("disabled", false);
-    }
-    $("#passo").html(index + 1);
-  };
-  passoexibido();
-  $("#next").click(function () {
-    $(".step:visible").hide().next().show();
-    passoexibido();
-  });
-  $("#prev").click(function () {
-    $(".step:visible").hide().prev().show();
-    passoexibido();
-  });
-});
-
 jQuery(function ($) {
   const inputJson = document.getElementById("jsonConfig");
   var fbTemplate = document.getElementById("build-wrap");
@@ -76,6 +50,14 @@ jQuery(function ($) {
       inputJson.value = formData;
     },
     disabledActionButtons: ["data"],
+    disableFields: [
+      "autocomplete",
+      "button",
+      "header",
+      "hidden",
+      "paragraph",
+      "starRating",
+    ],
     i18n: {
       override: {
         "en-US": {
@@ -146,7 +128,7 @@ jQuery(function ($) {
           "placeholder.className": "space separated classes",
           "placeholder.password": "Coloque sua senha",
           preview: "Preview",
-          radioGroup: "Radiohead",
+          radioGroup: "Radio",
           radio: "Radio",
           removeMessage: "Remover elemento",
           removeOption: "Remover opção",
@@ -190,13 +172,15 @@ jQuery(function ($) {
     },
   };
   $(fbTemplate).formBuilder(options);
-  const jsonForm = document.getElementById("jsonForm");
-  const dataForm = jsonForm.value;
+  /** 
+  const jsonForm = document.getElementById("jsonForm").value;
   const fbRender = document.getElementById("fb-render");
-  const data = dataForm;
-  console.log(data);
-  const formData = JSON.parse(data);
-  $(fbRender).formRender({ formData });
+  $(fbRender).formRender({ jsonForm }); */
+  const fbRender = document.getElementById("fb-render");
+  const originalFormData = document.getElementById("jsonData").value;
+  jQuery(function ($) {
+    $(fbRender).formRender({ originalFormData });
+  });
 });
 
 /**

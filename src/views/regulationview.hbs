@@ -4,97 +4,39 @@
     <div class="div-center">
       <h1 class="mb-3 align-middle">
         <i class="ri-eye-line align-middle"></i>
-        Visualizando processo
+        Visualizando processo: {{id}}
       </h1>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="/regulation"> Regulação</a>
-          </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            Sinistro: {{data.num_sinistro}}
-          </li>
-        </ol>
-      </nav>
-      <div class="bg-white rounded shadow-sm p-3">
-        <div class="accordion" id="accordionExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
+    <div class="rounded shadow-sm p-3 bg-light">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+          {{#each data}}
+          <div class="accordion-item rounded">
+            <h2 class="accordion-header" id="flush-headingOne">
               <button
-                class="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                Tela 01 - Dados do seguro
+              class="accordion-button collapsed btn-link "
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#s{{tela.[6]}}"
+              aria-expanded="false"
+              aria-controls="s{{tela.[6]}}">
+                {{tela}}
               </button>
             </h2>
             <div
-              id="collapseOne"
-              class="accordion-collapse collapse show"
-              aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample"
-            >
+            id="s{{tela.[6]}}"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#s{{tela.[6]}}">
               <div class="accordion-body">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Sinistro: {{data.num_sinistro}}</li>
-                  <li class="list-group-item">Data aviso: {{data.data_aviso}}</li>
-                  <li class="list-group-item">Valor Pleiteado: R${{data.valor_pleiteado}}</li>
-                  <li class="list-group-item">Is: R$100,00</li>
-                  <li class="list-group-item">Apólice: {{data.num_apolice}}</li>
-                  <li class="list-group-item">
-                    Vigência Ínicio: {{data.ini_vigencia}}
-                  </li>
-                  <li class="list-group-item">
-                    Vigência Término: {{data.fim_vigencia}}
-                  </li>
-                </ul>
+                <input type="text" id="jsonForm" value="{{dados}}" />
+                <form id="fb-render"></form>
+                <a class="btn btn-primary" href="#">Editar dados da tela</a>
               </div>
-            </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo"
-                aria-expanded="false"
-                aria-controls="collapseTwo"
-              >
-                Tela 02 - Dados do segurado
-              </button>
-            </h2>
-            <div
-              id="collapseTwo"
-              class="accordion-collapse collapse"
-              aria-labelledby="headingTwo"
-              data-bs-parent="#accordionExample"
-            >
-              <div class="accordion-body">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Segurado: {{data.segurado}}</li>
-                  <li class="list-group-item">CPF: {{data.cpf}}</li>        
-                  <li class="list-group-item">Fase: Aviso</li>
-                  <li class="list-group-item">
-                    Classificação: {{data.classificacao}}
-                  </li>
-                  <li class="list-group-item">Status: {{data.status}}</li>
-                  <li class="list-group-item">
-                    Analista Técnico Responsável: Beltrano
-                  </li>
-                  <li class="list-group-item">
-                    Vistoriador Acionado: 01/Jan/21
-                  </li>
-                  <li class="list-group-item">Tipo Do Evento: {{data.evento}}</li>
-                  <li class="list-group-item">Prazo Regulação: {{data.prazo_regulacao}}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <hr class="m-0">
+          {{else}}
+            <h6 class="text-danger">Nenhuma tela encontrada.</h6>
+          {{/each}}
         </div>
-      </div>
     </div>
   </div>
+</div>

@@ -1,31 +1,29 @@
 {{>_nav}}
 {{>_bbchain}}
 <div class="container mt-4 mb-4">
-  <h1 class="mt-4">Configurando a tela: {{screen.name}}</h1>
+  <h1 class="mt-4">Configurando tela:</h1>
   <div class="rounded bg-white p-2">
     <div id="build-wrap"></div>
-    <div class="row">
-      <div class="col-md-8">
-        <div class="render-wrap"></div>
-      </div>
-      <div class="col-md-4 mt-3">
-        <h5 id="title-form">Ações</h5>
-        <div class="row p-2">
-          <div class="col-md-6">
-            <button class="btn  btn-outline-warning form-control m-2" id="edit-form">
-              <i class="ri-edit-line align-middle"></i> Formulário
-            </button>
+      <div class="row">
+        <div class="col-md-8">
+          <button class="btn btn-dark" id="edit-form">
+            <i class="ri-edit-line"></i> Editar Formulário
+          </button>
+          <div class="mt-5">
+            <div class="render-wrap"></div>
           </div>
-          <div class="col-md-6">
-            <form method="POST" action="/update/screen">
-            <input type="hidden" name="id" value="{{screen.id}}" />
-            <input type="hidden" id="jsonConfig" name="json">
-            <input type="hidden" value="{{screen.phaseId}}" name="phase" />
-            <button type="submit" class="btn btn-outline-success form-control m-2" id="save-form">
-              <i class="ri-save-3-line align-middle"></i> Salvar
-            </button>
-            </form>
-          </div>
+        </div>
+        <div class="col-md-4">
+        <form method="POST" action="/add/screen">
+          <h5 id="title-form">Nome da tela: </h5>
+          <input id="edit-input" class="form-control mb-3" type="text" name="tela">
+          <input type="hidden" name="ramo" value="{{ramo}}"/>
+          <input type="hidden" name="evento" value="{{evento}}"/>
+          <input type="hidden" id="jsonConfig" name="dados">
+          <button type="submit" class="btn btn-primary form-control" id="save-form">
+            <i class="ri-save-3-line align-middle"></i> Salvar
+          </button>
+        </form>
         </div>
       </div>
     </div>
