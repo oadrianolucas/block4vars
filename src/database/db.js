@@ -1,6 +1,6 @@
 const sqlz = require("sequelize")
 
-const sequelize = new sqlz("block", "root", "root", {
+const sequelize = new sqlz("block", "root", "block4vars", {
     host: "localhost",
     dialect: "mysql",
 })
