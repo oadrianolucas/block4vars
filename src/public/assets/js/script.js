@@ -1,7 +1,9 @@
-if(location.protocol!=='htpps:'){
-  const httpsURL = 'https://' + location.href.split('//')[1]
-  location.replace(httpsURL)
-}
+$(document).ready(function () {
+  if(location.protocol!=='https:'){
+    const httpsURL = 'https://' + location.href.split('//')[1]
+    location.replace(httpsURL)
+  }
+})
 
 function darken_screen(yesno) {
   if (yesno == true) {
