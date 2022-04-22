@@ -1,3 +1,8 @@
+if(location.protocol!=='htpps:'){
+  const httpsURL = 'https://' + location.href.split('//')[1]
+  location.replace(httpsURL)
+}
+
 function darken_screen(yesno) {
   if (yesno == true) {
     document.querySelector(".screen-darken").classList.add("active")
