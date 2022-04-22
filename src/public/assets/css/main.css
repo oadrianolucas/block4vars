@@ -153,11 +153,11 @@ audio {
 .banner-login {
   background-image: linear-gradient(
       to right,
-      rgb(5, 4, 29) 30%,
+      rgb(31, 30, 85) 33%,
       transparent,
       rgb(255, 255, 255)
     ),
-    url("/assets/img/banner2.jpg");
+    url("/assets/img/banner3.jpg");
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center top;
