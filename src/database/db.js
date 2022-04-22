@@ -1,20 +1,20 @@
-const sqlz = require("sequelize");
+const sqlz = require("sequelize")
 
 const sequelize = new sqlz("block", "root", "root", {
-  host: "localhost",
-  dialect: "mysql",
-});
+    host: "localhost",
+    dialect: "mysql",
+})
 
 module.exports = {
-  sqlz: sqlz,
-  sequelize: sequelize,
-};
+    sqlz: sqlz,
+    sequelize: sequelize,
+}
 
 sequelize
-  .authenticate()
-  .then(() => {
-    console.log("Conexão realizada com sucesso ao banco de dados");
-  })
-  .catch(() => {
-    console.log("Error ao se conectar com o banco de dados" + err);
-  });
+    .authenticate()
+    .then(() => {
+        console.log("Conexão realizada com sucesso ao banco de dados")
+    })
+    .catch((err) => {
+        console.log("Error ao se conectar com o banco de dados" + err)
+    })

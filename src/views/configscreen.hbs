@@ -1,31 +1,39 @@
+{{>_loading}}
 {{>_nav}}
 {{>_bbchain}}
 <div class="container mt-4 mb-4">
-  <h1 class="mt-4">Configurando tela:</h1>
-  <div class="rounded bg-white p-2">
-    <div id="build-wrap"></div>
-      <div class="row">
-        <div class="col-md-8">
-          <button class="btn btn-dark" id="edit-form">
-            <i class="ri-edit-line"></i> Editar Formulário
-          </button>
-          <div class="mt-5">
-            <div class="render-wrap"></div>
-          </div>
-        </div>
-        <div class="col-md-4">
+  <h1 class="mt-4"><i class="ri-layout-3-fill align-middle"></i> Configurando tela:</h1>
+  <div class="bg-white rounded p-2 border" id="build-wrap"></div>
+  <div class="row">
+    <div class="col-md-8">
+    <div class="bg-white p-2 rounded border render-wrap"></div>
+    </div>
+    {{>_msg}}
+    <div class="col-md-4">
+      <div id="edit-form" class="bg-white p-2 rounded border">
         <form method="POST" action="/add/screen">
-          <h5 id="title-form">Nome da tela: </h5>
-          <input id="edit-input" class="form-control mb-3" type="text" name="tela">
-          <input type="hidden" name="ramo" value="{{ramo}}"/>
-          <input type="hidden" name="evento" value="{{evento}}"/>
-          <input type="hidden" id="jsonConfig" name="dados">
-          <button type="submit" class="btn btn-primary form-control" id="save-form">
-            <i class="ri-save-3-line align-middle"></i> Salvar
-          </button>
-        </form>
+        <h5 id="title-form">Nome: </h5>
+        <input id="edit-input" class="form-control mb-3" type="text" name="tela" placeholder="Ex: Tela 01" required>
+        <input type="hidden" name="ramo" value="{{ramo}}" required/>
+        <input type="hidden" name="evento" value="{{evento}}" required/>
+        <input type="hidden" id="jsonConfig" name="dados" required>
+        <div class="row">
+        <div class="col-md-6">
+        <button type="button" class="btn btn-dark form-control" id="edit-form-builder">
+        <i class="ri-edit-line"></i> Editar Formulário
+        </button>
         </div>
+        <div class="col-md-6">
+        <button type="submit" class="btn btn-primary form-control" id="save-form">
+        <i class="ri-save-3-line align-middle"></i> Salvar
+        </button>
+        </div>
+        </div>
+        </form>
+        <span class="text-muted mt-1">Verifique a configuração e defina um nome para nova tela.</span>
       </div>
     </div>
   </div>
 </div>
+{{>_script}}
+{{>_scriptFormBuilder}}

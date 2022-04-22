@@ -1,42 +1,72 @@
 {{>_nav}}
 {{>_bbchain}}
 <div class="container mt-4 mb-4">
-    <div class="div-center">
-      <h1 class="mb-3 align-middle">
-        <i class="ri-eye-line align-middle"></i>
-        Visualizando processo: {{id}}
-      </h1>
-    <div class="rounded shadow-sm p-3 bg-light">
-      <div class="accordion accordion-flush" id="accordionFlushExample">
-          {{#each data}}
-          <div class="accordion-item rounded">
-            <h2 class="accordion-header" id="flush-headingOne">
-              <button
-              class="accordion-button collapsed btn-link "
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#s{{tela.[6]}}"
-              aria-expanded="false"
-              aria-controls="s{{tela.[6]}}">
-                {{tela}}
-              </button>
-            </h2>
-            <div
-            id="s{{tela.[6]}}"
-            class="accordion-collapse collapse"
-            aria-labelledby="flush-headingOne"
-            data-bs-parent="#s{{tela.[6]}}">
-              <div class="accordion-body">
-                <input type="text" id="jsonForm" value="{{dados}}" />
-                <form id="fb-render"></form>
-                <a class="btn btn-primary" href="#">Editar dados da tela</a>
+  <div class="div-center">
+        <nav class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/regulations"><i class="ri-arrow-go-back-line"></i> Voltar</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><i class="ri-eye-2-line"></i> Regulação: {{id}}</li>
+          </ol>
+        </nav>
+      {{>_msg}}
+      <div class="rounded shadow-sm p-3 bg-white">
+        <div class="accordion">
+            {{#each data}}
+            <div class="accordion-item" id="panelsStayOpen-heading{{@index}}">
+              <h2 class="accordion-header">
+                <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#t{{@index}}"
+                aria-expanded="false"
+                aria-controls="t{{@index}}">
+                  {{tela}}
+                </button>
+              </h2>
+              <div
+              id="t{{@index}}"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingOne"
+              data-bs-parent="#t{{@index}}">
+              <div class="d-flex flex-row-reverse bd-highlight my-2">
+                <div class="bd-highlight border rounded px-2 m-1">
+                  Ações:
+                  <button
+                    class="dropdown-toggle btn"
+                    href="#"
+                    data-bs-toggle="dropdown"
+                  >
+                    <i class="ri-settings-3-line"></i>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <a class="dropdown-item" href="{{evento}}/{{tela}}"><i class="ri-edit-fill align-middle"></i> Editar</a>
+                      <a class="dropdown-item" href="{{evento}}/{{tela}}/upload"><i class="ri-folders-line align-middle"></i> Arquivos</a>
+                      <a class="dropdown-item" href="{{evento}}/{{tela}}/upload/audio"><i class="ri-mic-line align-middle"></i> Áudios</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
+              <hr class="m-0">
+              <ul class="list-group list-group-flush">
+                {{#each dados}}
+                      <li class="list-group-item">{{label}}: {{value}}</li>
+                {{else}}
+                  <div class="alert alert-danger m-3" role="alert">
+                    Nenhum dado encontrado.
+                  </div>
+                {{/each}}
+              </ul>
+            </div>
           </div>
-          <hr class="m-0">
           {{else}}
-            <h6 class="text-danger">Nenhuma tela encontrada.</h6>
+            <div class="alert alert-danger" role="alert">
+              Nenhuma tela encontrada.
+            </div>
           {{/each}}
         </div>
-    </div>
+      </div>
   </div>
 </div>
+{{>_script}}

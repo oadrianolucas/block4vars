@@ -1,0 +1,48 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4">
+  <div class="div-center">
+    <nav class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/configurations"><i class="ri-arrow-go-back-line"></i> Voltar</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><i class="ri-settings-4-line align-middle"></i>: Ramo: {{ramo}} | Evento: {{evento}}</li>
+      </ol>
+    </nav>
+    {{>_msg}}
+    <div class="shadow-sm border rounded bg-white mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" class="w-75">Nome</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tr>
+        {{#each data}}
+          <td class="align-middle">{{@index}}</td>
+          <td class="align-middle">{{tela}}</td>
+          <td class="align-middle">
+            <button
+            class="dropdown-toggle btn btn-sm"
+            href="#"
+            data-bs-toggle="dropdown"
+            >
+            <i class="ri-settings-3-line"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="/config/view/{{ramo}}/{{evento}}/{{tela}}"> <i class="ri-eye-line align-middle"></i> Visualizar</a>
+                <a class="dropdown-item" href="{{evento}}/{{tela}}"><i class="ri-edit-fill align-middle"></i> Editar</a>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        {{else}}
+        <span class="text-danger">Não encontramos nenhuma tela por aqui.</span>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+</div>
+{{>_script}}

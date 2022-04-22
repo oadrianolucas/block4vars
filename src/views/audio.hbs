@@ -1,0 +1,91 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+    <div class="div-center">
+      <nav class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/regulation/{{id}}/{{ramo}}/{{evento}}"><i class="ri-arrow-go-back-line"></i> Voltar</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><i class="ri-mic-line"></i> Áudios da Regulação: {{id}} | {{tela}}</li>
+        </ol>
+      </nav>
+      {{>_msg}}  
+      <div class="rounded shadow-sm p-3 bg-white">
+        <div class="row">
+          <div class="col-md-6 p-1">
+            <button type="button" class="btn btn-primary form-control" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="ri-mic-2-line align-middle"></i> Gravar áudio
+            </button>
+          </div>
+          <div class="col-md-6 p-1">
+            <button type="button" class="btn btn-primary form-control" data-bs-toggle="modal" data-bs-target="#exampleModall">
+              <i class="ri-folder-music-line  align-middle"></i> Tranformar áudio em texto
+            </button>
+          </div>
+        </div>
+        <hr/>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Áudio</th>
+                <th scope="col">Texto do áudio</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each audio}}
+              <tr>
+                <td class="align-middle">{{name}}</td>
+                <td><audio src="/uploads/{{dest}}" controls></audio></td>
+                <td class="align-middle">{{textaudio}}</td>
+              </tr>
+             {{else}}
+              <li class="list-group-item"><span class="text-danger">Não existe nenhum áudio.</span></li>
+            {{/each}}
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+{{>_script}}
+{{>_audio}}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="ri-mic-2-line align-middle"></i> Gravação de aúdio</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-dark form-control" id="btn-audio">▶️ Iniciar</button>  
+      </div>
+      <div class="modal-footer">
+        <div class="form-center-div">
+          <div class="audios"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModall" tabindex="-1" aria-labelledby="exampleModalLabell">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabell"><i class="ri-file-music-line align-middle"></i> Enviar aúdio para transformar em texto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/convert/audio" enctype="multipart/form-data" >
+          <label>Áudio: </label>
+          <input type="file" name="file" class="form-control" required/>
+          <input type="hidden" name="id" value="{{id}}" />
+          <input type="hidden" name="ramo" value="{{ramo}}"  />
+          <input type="hidden" name="evento" value="{{evento}}" />
+          <input type="hidden" name="tela" value="{{tela}}" />
+          <button type="submit" class="btn btn-primary form-control mt-2">Enviar</button>
+        </form>      
+      </div>
+    </div>
+  </div>
+</div>

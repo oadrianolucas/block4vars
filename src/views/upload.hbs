@@ -1,0 +1,56 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+  <div class="div-center">
+    <nav class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/regulation/{{id}}/{{ramo}}/{{evento}}"><i class="ri-arrow-go-back-line"></i> Voltar</a></li>
+      <li class="breadcrumb-item active" aria-current="page"><i class="ri-folder-3-line"></i> Arquivos da Regulação: {{id}} | {{tela}}</li>
+      </ol>
+    </nav>
+    {{>_msg}}
+    <div class="row mb-3">
+      <div class="col-md-8">
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-primary form-control" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="ri-folder-upload-line align-middle"></i> Adicionar arquivo
+        </button>
+      </div>
+    </div>         
+    <div class="rounded shadow-sm p-3 bg-white">
+      {{#each file}}
+      <li class="list-group-item"><a  target="_blank" href="/uploads/{{dest}}">{{name}}</a></li>
+      {{else}}
+      <li class="list-group-item"><span class="text-danger">Não existe nenhum arquivo.</span></li>
+      {{/each}}
+    </div>
+  </div>
+</div>
+{{>_script}}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel"><i class="ri-folder-upload-fill align-middle"></i> Enviar arquivo</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form action="/upload" enctype="multipart/form-data"  method="POST">
+      <label>Nome do arquivo: </label>
+      <input type="text" name="name" class="form-control" required/>
+      <label>Arquivo: </label>
+      <input type="file" name="file" class="form-control" required/>
+      <input type="hidden" name="tela" value="{{tela}}" />
+      <input type="hidden" name="id" value="{{id}}" />
+      <input type="hidden" name="ramo" value="{{ramo}}" />
+      <input type="hidden" name="evento" value="{{evento}}" />
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary form-control">Enviar</button>
+      </form> 
+    </div>
+    </div>
+  </div>
+</div>

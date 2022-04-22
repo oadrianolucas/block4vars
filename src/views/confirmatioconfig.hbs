@@ -15,8 +15,11 @@
         </form>
       </div>
       <div class="col-md-6">
-        <a class="btn btn-primary px-5" href="/configurations">Finalizar</a>
+        <form method="POST" action="/finish/config">
+          <button class="btn btn-primary px-5" type="submit">Finalizar</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
+{{>_script}}

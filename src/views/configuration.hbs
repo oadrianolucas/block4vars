@@ -1,49 +1,51 @@
 {{>_nav}}
 {{>_bbchain}}
 <div class="container mt-4">
-    <div class="div-center">        
-      <div class="row">
-        <div class="col-md-8">
-          <h1><i class="ri-settings-4-line align-middle"></i> Configurações</h1>
-        </div>
-        <div class="col-md-4">
-          <a href="/new/config" class="btn btn-dark d-block"><i class="ri-add-box-line align-middle"></i> Configuração</a>
-        </div>
+  <div class="div-center">
+    {{>_msg}}        
+    <div class="row">
+      <div class="col-md-8">
+      <h1 class="mt-2"><i class="ri-settings-4-line align-middle"></i> Configurações</h1>
       </div>
-      <hr>
-          <table class="table table-sm table-hover border">
-            <thead class="bg-dark text-white">
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Ramo</th>
-                <th scope="col">Evento</th>
-                <th scope="col">Ação</th>
-              </tr>
-            </thead>
-          <tr>
-              {{#each data}}
-              <td class="align-middle">{{@index}}</td>
-              <td class="align-middle">{{ramo}}</td>
-              <td class="align-middle">{{evento}}</td>
-              <td class="align-middle">
-              <button
-                class="dropdown-toggle btn"
-                href="#"
-                data-bs-toggle="dropdown"
-              >
-                <i class="ri-settings-3-line"></i>
-              </button>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <li>
-                  <a class="dropdown-item" href="/config/{{ramo}}/{{evento}}"> <i class="ri-eye-line align-middle"></i> Visualizar</a>
-                </li>
-              </ul>
-            </td>
-          </tr>
-          </tbody>
-          {{else}}
-              <h6 class="text-danger">Nenhuma configuração encontrada</h6>
-          {{/each}}
-          </table>
+      <div class="col-md-4">
+      <a href="/new/config" class="btn btn-primary d-block"><i class="ri-add-box-line align-middle"></i> Configuração</a>
+      </div>
+    </div> 
+    <div class="shadow-sm border rounded bg-white mt-3">
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Ramo</th>
+          <th scope="col">Evento</th>
+          <th scope="col">Ação</th>
+        </tr>
+        </thead>
+        {{#each data}}
+        <tr>
+          <td class="align-middle">{{@index}}</td>
+          <td class="align-middle">{{ramo}}</td>
+          <td class="align-middle">{{evento}}</td>
+          <td class="align-middle">
+          <button
+          class="dropdown-toggle btn btn-sm"
+          href="#"
+          data-bs-toggle="dropdown"
+          >
+          <i class="ri-settings-3-line"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+            <a class="dropdown-item" href="/config/{{ramo}}/{{evento}}"> <i class="ri-eye-line align-middle"></i> Visualizar</a>
+            </li>
+          </ul>
+          </td>
+        </tr>
+        {{else}}
+        <h6 class="text-danger">Nenhuma configuração encontrada</h6>
+        {{/each}}
+      </table>
     </div>
   </div>
+</div>
+{{>_script}}

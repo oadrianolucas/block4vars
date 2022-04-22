@@ -1,0 +1,27 @@
+{{>_nav}}
+{{>_bbchain}}
+<div class="container mt-4 mb-4">
+    <div class="div-center">
+      <nav class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/regulation/{{id}}/{{ramo}}/{{evento}}/{{tela}}/upload/audio"><i class="ri-arrow-go-back-line"></i> Voltar</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><i class="ri-file-music-line"></i> Áudio ( {{filename}} ) convertido com sucesso.</li>
+        </ol>
+      </nav>
+      {{>_msg}}        
+      <div class="rounded shadow-sm p-3 bg-white">
+          <form method="POST" action="/uploadaudio">
+            <label>Nome do arquivo: </label>
+            <input type="text" class="form-control mb-2" name="name" />
+            <input type="hidden" name="id" value="{{id}}" />
+            <input type="hidden" name="tela" value="{{tela}}"/>
+            <input type="hidden" name="dest" value="{{filename}}"/>
+            <label>Texto do Áudio: </label>
+            <textarea class="form-control mb-2" name="textaudio">{{transcription}}</textarea>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </form>
+      </div>
+    </div>
+</div>
+{{>_script}}
+

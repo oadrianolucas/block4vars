@@ -1,15 +1,18 @@
 {{>_nav}}
 {{>_bbchain}}
-<!--
 <div class="container mt-4 mb-4">
   <div class="div-center">
-    <div class="rounded bg-white p-2">
-      <input type="text" id="jsonForm" value="[{'type': 'checkbox-group', 'required': False, 'label': 'Checkbox Group', 'toggle': False, 'inline': False, 'name': 'checkbox-group-1648554063067-0', 'access': False, 'other': False, 'values': [{'label': 'Option 1', 'value': 'teste funcionando - op_1 - ok', 'selected': True}, {'label': 'Option 2', 'value': 'teste funcionando - op_2 - ok', 'selected': True}]}, {'type': 'date', 'required': False, 'label': 'Date Field', 'className': 'form-control', 'name': 'date-1648554065217-0', 'access': False, 'value': '30-abr-2022'}, {'type': 'file', 'required': False, 'label': 'File Upload', 'className': 'form-control', 'name': 'file-1648554066890-0', 'access': False, 'subtype': 'file', 'multiple': False, 'value': 'url do arquivo - ok'}, {'type': 'number', 'required': False, 'label': 'Number', 'className': 'form-control', 'name': 'number-1648554068483-0', 'access': False, 'value': 2022}, {'type': 'radio-group', 'required': False, 'label': 'Radio Group', 'inline': False, 'name': 'radio-group-1648554070067-0', 'access': False, 'other': False, 'values': [{'label': 'Option 1', 'value': 'teste funcionando - op_1 - ok', 'selected': False}, {'label': 'Option 2', 'value': 'teste funcionando - op_2 - ok', 'selected': False}, {'label': 'Option 3', 'value': 'teste funcionando - op_2 - ok', 'selected': False}]}, {'type': 'select', 'required': False, 'label': 'Select', 'className': 'form-control', 'name': 'select-1648554071993-0', 'access': False, 'multiple': False, 'values': [{'label': 'Option 1', 'value': 'teste funcionando - op_1 - ok', 'selected': True}, {'label': 'Option 2', 'value': 'teste funcionando - op_2 - ok', 'selected': False}, {'label': 'Option 3', 'value': 'teste funcionando - op_3 - ok', 'selected': False}]}]" />
+    <nav class="mt-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page"><a href="/config/{{ramo}}/{{evento}}"><i class="ri-arrow-go-back-line"></i> Voltar</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><i class="ri-eye-2-line"></i>: {{tela}}</li>
+      </ol>
+    </nav>
+    <div class="border rounded p-3 bg-white shadow-sm">
+      <input type="hidden" id="json-render" value="{{jsonData}}">
       <form id="fb-render"></form>
     </div>
   </div>
 </div>
--->
-
-<input id="jsonData" value="[{'type': 'checkbox-group', 'required': False, 'label': 'Checkbox Group', 'toggle': False, 'inline': False, 'name': 'checkbox-group-1648554063067-0', 'access': False, 'other': False, 'values': [{'label': 'Option 1', 'value': 'teste funcionando - op_1 - ok', 'selected': True}, {'label': 'Option 2', 'value': 'teste funcionando - op_2 - ok', 'selected': True}]}, {'type': 'date', 'required': False, 'label': 'Date Field', 'className': 'form-control', 'name': 'date-1648554065217-0', 'access': False, 'value': '30-abr-2022'}, {'type': 'file', 'required': False, 'label': 'File Upload', 'className': 'form-control', 'name': 'file-1648554066890-0', 'access': False, 'subtype': 'file', 'multiple': False, 'value': 'url do arquivo - ok'}, {'type': 'number', 'required': False, 'label': 'Number', 'className': 'form-control', 'name': 'number-1648554068483-0', 'access': False, 'value': 2022}, {'type': 'radio-group', 'required': False, 'label': 'Radio Group', 'inline': False, 'name': 'radio-group-1648554070067-0', 'access': False, 'other': False, 'values': [{'label': 'Option 1', 'value': 'teste funcionando - op_1 - ok', 'selected': False}, {'label': 'Option 2', 'value': 'teste funcionando - op_2 - ok', 'selected': False}, {'label': 'Option 3', 'value': 'teste funcionando - op_2 - ok', 'selected': False}]}, {'type': 'select', 'required': False, 'label': 'Select', 'className': 'form-control', 'name': 'select-1648554071993-0', 'access': False, 'multiple': False, 'values': [{'label': 'Option 1', 'value': 'teste funcionando - op_1 - ok', 'selected': True}, {'label': 'Option 2', 'value': 'teste funcionando - op_2 - ok', 'selected': False}, {'label': 'Option 3', 'value': 'teste funcionando - op_3 - ok', 'selected': False}]}]">
-<form id="fb-render"></form>
+{{>_script}}
+{{>_scriptFormRender}}

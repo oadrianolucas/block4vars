@@ -1,18 +1,19 @@
 <div class="row h-100 w-100 m-0">
   <div class="col-md-4 bg-white">
     <div class="p-5">
-      <img class="logo" src="/assets/img/logo.png" />
+      <img class="logo" src="/assets/img/logo.svg" />
       <h3 class="mt-4">Login</h3>
       <form method="POST" action="/authenticate">
         <label>E-mail</label>
-        <input type="email" class="form-control" name="email" />
+        <input type="email" class="form-control" name="email" required/>
         <label>Senha</label>
-        <input type="password" class="form-control" name="password" />
-        <button class="btn btn-dark mt-3"><i
+        <input type="password" class="form-control" name="password" required/>
+        <button class="btn btn-primary mt-3"><i
             class="ri-login-box-line align-middle"
           ></i>
           Entrar</button>
       </form>
+      {{>_msg}}
     </div>
   </div>
   <div class="col-md-6 text-white p-5 banner-login">
@@ -20,3 +21,4 @@
     <p>Realize o login para acessar nossa plataforma.</p>
   </div>
 </div>
+{{>_script}}

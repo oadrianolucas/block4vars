@@ -4,37 +4,44 @@
     <i class="ri-shield-check-line align-middle"></i>
     Regulação
   </h1>
-  <div class="bg-white shadow-sm rounded p-2 m-2">
+  <div class="bg-white shadow-sm rounded border m-2">
     <div class="table-responsive">
         <table class="table table-sm">  <thead>
         <tr>
+            <th scope="col">Número Sinistro</th>
+            <th scope="col">Data Aviso</th>
+            <th scope="col">Data Sinistro</th>
+            <th scope="col">Prazo Regulação</th>
             <th scope="col">Ramo</th>
             <th scope="col">Evento</th>
-            <th scope="col">Número Sinistro</th>
-            <th scope="col">Dados</th>
+            <th scope="col">Valor Pleiteado</th>
+            <th scope="col">Etapa</th>
+            <th scope="col">Classificação</th>
+            <th scope="col">Status</th>
+            <th scope="col">Parecer IA</th>
+            <th scope="col">Número Apólice</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Segurado</th>
             <th scope="col">Ações</th>
         </tr>
     </thead>
     <tbody>
         {{#each data}}
         <tr>
+            <td>{{num_sinistro}}</td>
+            <td>{{data_aviso}}</td>
+            <td>{{data_sinistro}}</td>
+            <td>{{prazo_regulacao}}</td>
             <td>{{ramo}}</td>
             <td>{{evento}}</td>
-            <td>{{num_sinistro}}</td>
-            <td> 
-                {{#each dados}}
-                  <div class="form-group">
-                    <label for="{{label}}">{{label}}: </label>
-                    {{value}}
-                    {{#each values}} 
-                      {{value}}
-                    {{/each}}
-                  </div>
-                  <hr>
-                {{else}}
-                  <h6 class="text-danger">Nenhum dado configurado.</h6>
-                {{/each}}
-            </td>
+            <td>{{valor_pleiteado}}</td>
+            <td>{{etapa}}</td>
+            <td>{{classificacao}}</td>
+            <td>{{status}}</td>
+            <td>{{parecer_ia}}</td>
+            <td>{{num_apolice}}</td>
+            <td>{{cpf}}</td>
+            <td>{{segurado}}</td>
             <td>
                 <button
                 class="dropdown-toggle btn"
@@ -45,7 +52,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
                 <li>
-                    <a class="dropdown-item" href="/regulation/{{num_sinistro}}"><i
+                    <a class="dropdown-item" href="/regulation/{{num_sinistro}}/{{ramo}}/{{evento}}"><i
                         class="ri-eye-line align-middle"
                     ></i>
                     Visualizar</a>
@@ -60,3 +67,4 @@
         </table>
     </div>
 </div>
+{{>_script}}

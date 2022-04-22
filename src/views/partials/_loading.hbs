@@ -1,19 +1,19 @@
 <div class="loading">
-  <div class="div-center text-center">
-    <h1 class="mb-3">Estamos preparando tudo por aqui...</h1>
-    <div class="spinner">
-      <div class="spinner-border mb-3" role="status">
-        <span class="visually-hidden">Loading...</span>
+   <div class="div-center text-center">
+      <h1 class="mb-3">Estamos preparando tudo por aqui...</h1>
+      <div class="spinner">
+         <div class="spinner-border mb-3" role="status">
+            <span class="visually-hidden">Loading...</span>
+         </div>
+         <div class="porcent">100%</div>
       </div>
-      <div class="porcent">100%</div>
-    </div>
-  </div>
+   </div>
 </div>
 
 <script>
-  var porcent = document.querySelector(".porcent"); var loading =
-  document.querySelector(".loading"); var count = 1; var load =
-  setInterval(animate, 30); function animate() { if (count == 100) {
-  loading.parentElement.removeChild(loading); clearInterval(load); } else {
-  count = count + 1; porcent.textContent = count + "%"; } }
+   var porcent = document.querySelector(".porcent"); var loading =
+   document.querySelector(".loading"); var count = 1; var load =
+   setInterval(animate, 30); function animate() { if (count == 100) {
+   loading.parentElement.removeChild(loading); clearInterval(load); } else {
+   count = count + 1; porcent.textContent = count + "%"; } }
 </script>

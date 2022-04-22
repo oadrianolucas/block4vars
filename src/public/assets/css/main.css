@@ -2,6 +2,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
 }
 
 body.offcanvas-active {
@@ -10,7 +11,6 @@ body.offcanvas-active {
 
 .div-bbchain {
   padding: 10px;
-  background-color: #060764;
   width: 100%;
   color: #fff;
 }
@@ -92,6 +92,10 @@ h1 {
   transition: opacity 0.2s linear, visibility 0.2s, width 2s ease-in;
 }
 
+audio {
+  margin: 10px;
+}
+
 .screen-darken.active {
   z-index: 10;
   transition: opacity 0.3s ease, width 0s;
@@ -101,7 +105,16 @@ h1 {
 }
 
 .div-center {
-  max-width: 600px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#blob {
+  display: none;
+}
+
+.form-center-div {
   margin-left: auto;
   margin-right: auto;
 }

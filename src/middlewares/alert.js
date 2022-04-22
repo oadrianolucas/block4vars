@@ -1,0 +1,15 @@
+module.exports = {
+   UNCONFIRMED_EMAIL: "Confirme o e-mail para realizar o login.",
+   LOGOUT: "Logout realizado com sucesso.",
+   INVALID_PASSWORD: "A senha que você inseriu não está correta.",
+   INVALID_LOGIN: "O login que você inseriu não está conectado a uma conta.",
+   PUT_SINISTER: "Sinistro atualizado com sucesso.",
+   ERROR_PUT_SINISTER: "Erro ao atualizar sinistro com sucesso.",
+   POST_CONFIG: "Configuração criada com sucesso.",
+   ERROR_POST_CONFIG: "Erro ao criar configuração.",
+   PUT_CONFIG: "Tela editada com sucesso.",
+   ERROR_PUT_CONFIG: "Error ao editar a tela.",
+   ERROR_PUT_SCREEN: "Erro ao criar tela.",
+   FILE: "Upload realizado com sucesso.",
+   FILE_ERROR: "Error ao realizar o upload.",
+}
